@@ -47,7 +47,7 @@ fun main() = runBlocking {
     println()
 
     // se deja un box malo para probar el estado FueraDeServicio
-    sistema.boxes[12].estado = Box.EstadoBox.FueraDeServicio("Mantención")
+    sistema.boxes[9].estado = Box.EstadoBox.FueraDeServicio("Mantención")
 
     // ----- Entradas con los datos de prueba -----
     ingresar(sistema, Canino("CA46TO", "Lomito", "Gran Danés para los lados", TipoDueno.CONVENIO))
@@ -64,6 +64,8 @@ fun main() = runBlocking {
     sacar(sistema, "FE66EM", 666)
     sacar(sistema, "EX99TR", 18)
     sacar(sistema, "ZZ00ZZ", 30)   // paciente que no existe para que salte el error
+
+    mostrarCierre(sistema)
 
     println("===== Gracias por usar ${sistema.nombre}! nos vemos!! =====")
 }

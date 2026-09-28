@@ -16,8 +16,8 @@ open class Paciente(
     val fechaIngreso: LocalDateTime = LocalDateTime.now()  // valor por defecto: la hora actual
 ) {
 
-    // Cálculo general: horas × tarifa.
-    // "open fun" permite que las hijas lo cambien (polimorfismo)
+    // calculo general: horas × tarifa.
+    // "open fun" permite que los hijos modifiquen el comportamiento de la funcion
     open fun calcularCosto(minutos: Int): Double {
         return (minutos / 60.0) * tarifaBase   // 60.0 para no hacer división entera
     }

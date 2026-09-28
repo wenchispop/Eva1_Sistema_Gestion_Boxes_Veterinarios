@@ -5,8 +5,8 @@ import kotlinx.coroutines.delay
 class SistemaPetCare {
     val nombre = "PetCare"
 
-    //Crea 15 boxes numerados
-    val boxes = MutableList(15) { i -> Box(i + 1) }
+    //Crea 10 boxes numerados, el maximo que indica la rubrica
+    val boxes = MutableList(10) { i -> Box(i + 1) }
 
     //historial para guarda los tickets de los pacientes que ya salieron.
     val historial = mutableListOf<Ticket>()

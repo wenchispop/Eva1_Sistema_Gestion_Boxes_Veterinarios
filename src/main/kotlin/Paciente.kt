@@ -1,15 +1,21 @@
 package org.example
 import java.time.LocalDateTime
 
+//•	Código de atención en formato válido del sistema (dos letras, dos dígitos, dos le-tras. Ejemplo: CA12CD). No cambia una vez registrado.
+//•	Nombre y especie de la mascota. No cambia una vez registrado.
+//•	Fecha y hora exacta de ingreso al sistema. No cambia una vez registrada.
+//•	Tipo de dueño: particular, convenio o municipal. No cambia una vez registrado.
+
 // "open" permite que otras clases hereden de esta.
 open class Paciente(
-    val codigo: String,          // val = no cambia una vez registrado
+    val codigo: String,          // val = no cambia una vez registrado var cuando cambia
     val nombre: String,
     val especie: String,
     val tipoDueno: TipoDueno,
     val tarifaBase: Double,      // Double porque es dinero
     val fechaIngreso: LocalDateTime = LocalDateTime.now()  // valor por defecto: la hora actual
 ) {
+
     // Cálculo general: horas × tarifa.
     // "open fun" permite que las hijas lo cambien (polimorfismo)
     open fun calcularCosto(minutos: Int): Double {
@@ -17,7 +23,7 @@ open class Paciente(
     }
 
     // Texto para mostrar el paciente en pantalla
-    open fun detalle(): String {
+    open fun mostrarDetalle(): String {
         return "$codigo - $nombre ($especie) - Dueño: $tipoDueno"
     }
 }
